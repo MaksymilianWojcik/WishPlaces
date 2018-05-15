@@ -1,15 +1,13 @@
 package com.example.mwojcik.wishplaces.Fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import com.example.mwojcik.wishplaces.Activity.WishPlaceDetailActivity;
 import com.example.mwojcik.wishplaces.R;
-import com.example.mwojcik.wishplaces.Fragments.dummy.DummyContent;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -29,11 +27,6 @@ public class WishPlaceDetailFragment extends Fragment implements OnMapReadyCallb
      */
     public static final String ARG_ITEM_ID = "item_id";
 
-    /**
-     * The dummy content this fragment is presenting.
-     */
-    private DummyContent.DummyItem mItem;
-
     private SupportMapFragment mapFragment;
 
     /**
@@ -48,12 +41,7 @@ public class WishPlaceDetailFragment extends Fragment implements OnMapReadyCallb
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
 
-            Activity activity = this.getActivity();
         }
     }
 
@@ -62,10 +50,6 @@ public class WishPlaceDetailFragment extends Fragment implements OnMapReadyCallb
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.wishplace_detail, container, false);
 
-//        // Show the dummy content as text in a TextView.
-//        if (mItem != null) {
-//            ((TextView) rootView.findViewById(R.id.wishplace_detail)).setText(mItem.details);
-//        }
         mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.place_detail_map_fr);
         mapFragment.getMapAsync(this);
 
@@ -78,6 +62,7 @@ public class WishPlaceDetailFragment extends Fragment implements OnMapReadyCallb
         googleMap.getUiSettings().setZoomGesturesEnabled(false);
         googleMap.getUiSettings().setRotateGesturesEnabled(false);
         googleMap.getUiSettings().setAllGesturesEnabled(false);
+        googleMap.getUiSettings().setMapToolbarEnabled(false);
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(53.4293685, 14.344447),10));
     }
 }

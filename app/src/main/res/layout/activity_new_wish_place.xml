@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/newPlaceBackgroundColor"
-    tools:context=".NewWishPlaceActivity">
+    tools:context=".Activity.NewWishPlaceActivity">
 
     <include layout="@layout/activity_toolbar"
         android:id="@+id/mainToolbarActivity"
@@ -97,6 +97,7 @@
                 android:layout_weight="1"
                 android:gravity="center"/>
             <TextView
+                android:id="@+id/latitudeValueTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Unknown..."
@@ -114,12 +115,14 @@
                 android:gravity="center"
                 android:layout_weight="1"/>
             <TextView
+                android:id="@+id/longitudeValueTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Unknown..."
                 android:layout_weight="1"/>
         </LinearLayout>
         <Button
+            android:id="@+id/findLocationBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

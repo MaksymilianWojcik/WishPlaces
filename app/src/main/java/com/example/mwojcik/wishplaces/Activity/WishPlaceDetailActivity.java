@@ -1,8 +1,9 @@
-package com.example.mwojcik.wishplaces.Fragments;
+package com.example.mwojcik.wishplaces.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.mwojcik.wishplaces.Fragments.WishPlaceListFragment;
 import com.example.mwojcik.wishplaces.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -10,6 +11,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
@@ -59,7 +61,14 @@ public class WishPlaceDetailActivity extends AppCompatActivity implements OnMapR
         googleMap.getUiSettings().setZoomGesturesEnabled(false);
         googleMap.getUiSettings().setRotateGesturesEnabled(false);
         googleMap.getUiSettings().setAllGesturesEnabled(false);
+        googleMap.getUiSettings().setMapToolbarEnabled(false);
         googleMap.addMarker(new MarkerOptions().position(new LatLng(53.4293685, 14.344447)).title("Test").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(53.4293685, 14.344447),10));
+        googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                return true;
+            }
+        });
     }
 }

@@ -12,9 +12,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.mwojcik.wishplaces.Activity.WishPlaceDetailActivity;
 import com.example.mwojcik.wishplaces.R;
-
 import com.example.mwojcik.wishplaces.Utils.WishPlaceListAdapter;
+import com.example.mwojcik.wishplaces.dao.WishPlaceDao;
 import com.example.mwojcik.wishplaces.dto.WishPlace;
 
 import java.util.ArrayList;
@@ -36,6 +37,9 @@ public class WishPlaceListFragment extends Fragment {
     private boolean mTwoPane;
 
 
+    public WishPlaceListFragment(){}
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,19 +53,23 @@ public class WishPlaceListFragment extends Fragment {
             mTwoPane = true;
         }
 
-        ListView placesListView = (ListView) view.findViewById(R.id.wishplace_list);
-        final ArrayList<WishPlace> placesList = new ArrayList<>();
-        placesList.add(new WishPlace(1,"Moja dolinka", "Tutaj bedzie sex", "To tutaj mialem peirwsza randke"));
-        placesList.add(new WishPlace(2,"Moja dolinka", "Tutaj bedzie sex", "To tutaj mialem peirwsza randke"));
-        placesList.add(new WishPlace(3,"Moja dolinka", "Tutaj bedzie sex", "To tutaj mialem peirwsza randke"));
-        WishPlaceListAdapter adapter = new WishPlaceListAdapter(placesList, getContext());
+        //TODO: nie robic tego tu we fragmencie tylko przekazac juz do fragmentu gotowa liste
 
+        ListView placesListView = (ListView) view.findViewById(R.id.wishplace_list);
+        ArrayList<WishPlace> placesList = new ArrayList<>();
+        WishPlaceDao wishPlaceDao = new WishPlaceDao(getContext());
+        wishPlaceDao.open();
+        placesList = (ArrayList<WishPlace>) wishPlaceDao.getAllFavyPlaces();
+        wishPlaceDao.close();
+
+        WishPlaceListAdapter adapter = new WishPlaceListAdapter(placesList, getContext());
         placesListView.setAdapter(adapter);
 
+        final ArrayList<WishPlace> finalPlacesList = placesList;
         placesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                WishPlace wishPlace = placesList.get(i);
+                WishPlace wishPlace = finalPlacesList.get(i);
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
                     arguments.putString(WishPlaceDetailFragment.ARG_ITEM_ID, String.valueOf(wishPlace.getId()));

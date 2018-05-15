@@ -6,7 +6,10 @@ public class WishPlace {
     String name;
     String summary;
     String description;
+    String latitude;
+    String longitude;
 
+    public WishPlace(){}
 
     public WishPlace(String name, String summary, String description) {
         this.name = name;
@@ -19,6 +22,23 @@ public class WishPlace {
         this.name = name;
         this.summary = summary;
         this.description = description;
+    }
+
+    public WishPlace(int id, String name, String summary, String description, String latitude, String longitude) {
+        this.id = id;
+        this.name = name;
+        this.summary = summary;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public WishPlace(String name, String summary, String description, String latitude, String longitude) {
+        this.name = name;
+        this.summary = summary;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getId() {
@@ -51,5 +71,21 @@ public class WishPlace {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }
