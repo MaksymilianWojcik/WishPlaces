@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="mainActivityBackgroundColor">@color/colorWhite</color>
+    <color name="toolbarTitleColor">#FFFFFF</color>
+    <color name="toolbarBackgroundColor">#1d4532</color>
+    <color name="bottomNavBackgroundColor">#193B2B</color>
+    <color name="mainBackgroundColor">#e0f1e9</color>
+    <color name="placeItemTitle">#2b5927</color>
+    <color name="placeItemSummary">#e6afc5</color>
+    <color name="newPlaceBackgroundColor">#e0f1e9</color>
+    <color name="placeDetailsBackgroundColor">#e0f1e9</color>
+</resources>

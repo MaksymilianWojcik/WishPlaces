@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WishPlaces</string>
+    <string name="title_home">Places</string>
+    <string name="title_dashboard">Map</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_wishplace_list">WishPlaces</string>
+    <string name="title_wishplace_detail">WishPlace Detail</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
