@@ -48,6 +48,7 @@
             android:textSize="18sp"/>
 
         <EditText
+            android:id="@+id/placeNameET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Place name"
@@ -58,6 +59,7 @@
             android:singleLine="true"
             android:textColor="@color/colorPrimaryDark"/>
         <EditText
+            android:id="@+id/placeSummaryET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Place summary"
@@ -67,7 +69,7 @@
             android:singleLine="true"
             android:textColor="@color/colorPrimaryDark"/>
         <EditText
-            android:id="@+id/edtInput"
+            android:id="@+id/placeDescriptionET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Description"
@@ -131,6 +133,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/savePlaceBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SAVE MY FAVY PLACE"

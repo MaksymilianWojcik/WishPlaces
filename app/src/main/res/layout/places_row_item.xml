@@ -6,7 +6,7 @@
     <TextView
         android:id="@+id/place_name"
         android:text="Miejscowka do jarania dzinxu"
-        android:textSize="16dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,6 +16,7 @@
 
     <TextView
         android:id="@+id/place_summary"
+        android:textSize="16dp"
         android:text="Do zobaczenia w lutym"
         android:layout_width="wrap_content"
         android:padding="5dp"

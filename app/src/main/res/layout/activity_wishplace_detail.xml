@@ -5,13 +5,23 @@
     android:background="@color/placeDetailsBackgroundColor"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <include layout="@layout/activity_toolbar"
+        android:id="@+id/wishplace_detail_mainToolbarActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:transitionName="toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wishplace_detail_mainToolbarActivity"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <fragment
@@ -36,6 +46,7 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="5dp">
                 <TextView
+                    android:id="@+id/wishplace_detail_lat_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LAT: "
@@ -43,6 +54,7 @@
                     android:textSize="14dp"
                     android:layout_weight="1"/>
                 <TextView
+                    android:id="@+id/wishplace_detail_lon_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LON: "
@@ -52,6 +64,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/wishplace_detail_name_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nazwa"
@@ -59,17 +72,20 @@
                 android:textStyle="bold"
                 android:layout_marginTop="8dp"/>
             <TextView
+                android:id="@+id/wishplace_detail_summary_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Skrocony opis miejsca"
                 android:textSize="20dp"
                 android:layout_marginTop="5dp"/>
             <TextView
+                android:id="@+id/wishplace_detail_description_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dluzszy opis miejsca. Dluzszy opis miejsca. Dluzszy opis miejsca. Dluzszy opis miejsca. Dluzszy opis miejsca. Dluzszy opis miejsca."
                 android:textSize="20dp"
-                android:layout_marginTop="12dp"/>
+                android:layout_marginTop="12dp"
+                android:scrollbars="vertical"/>
 
         </LinearLayout>
 

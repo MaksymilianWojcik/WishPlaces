@@ -82,8 +82,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         return view;
     }
 
+    private GoogleMap map;
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         googleMap.getUiSettings().setZoomGesturesEnabled(true);
         googleMap.getUiSettings().setRotateGesturesEnabled(false);
@@ -94,4 +97,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(map != null){
+            WishPlaceDao wishPlaceDao = new WishPlaceDao(getContext());
+            wishPlaceDao.open();
+            placesList = (ArrayList<WishPlace>) wishPlaceDao.getAllFavyPlaces();
+            wishPlaceDao.close();
+            onMapReady(map);
+        }
+    }
 }

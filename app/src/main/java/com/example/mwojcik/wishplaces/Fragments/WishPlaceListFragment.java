@@ -35,6 +35,9 @@ public class WishPlaceListFragment extends Fragment {
      * device.
      */
     private boolean mTwoPane;
+    private ListView placesListView;
+    private WishPlaceListAdapter adapter;
+    private ArrayList<WishPlace> placesList;
 
 
     public WishPlaceListFragment(){}
@@ -55,14 +58,14 @@ public class WishPlaceListFragment extends Fragment {
 
         //TODO: nie robic tego tu we fragmencie tylko przekazac juz do fragmentu gotowa liste
 
-        ListView placesListView = (ListView) view.findViewById(R.id.wishplace_list);
-        ArrayList<WishPlace> placesList = new ArrayList<>();
+        placesListView = (ListView) view.findViewById(R.id.wishplace_list);
+        placesList = new ArrayList<>();
         WishPlaceDao wishPlaceDao = new WishPlaceDao(getContext());
         wishPlaceDao.open();
         placesList = (ArrayList<WishPlace>) wishPlaceDao.getAllFavyPlaces();
         wishPlaceDao.close();
 
-        WishPlaceListAdapter adapter = new WishPlaceListAdapter(placesList, getContext());
+        adapter = new WishPlaceListAdapter(placesList, getContext());
         placesListView.setAdapter(adapter);
 
         final ArrayList<WishPlace> finalPlacesList = placesList;
@@ -72,7 +75,7 @@ public class WishPlaceListFragment extends Fragment {
                 WishPlace wishPlace = finalPlacesList.get(i);
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
-                    arguments.putString(WishPlaceDetailFragment.ARG_ITEM_ID, String.valueOf(wishPlace.getId()));
+                    arguments.putInt(WishPlaceDetailFragment.ARG_ITEM_ID, wishPlace.getId());
                     WishPlaceDetailFragment fragment = new WishPlaceDetailFragment();
                     fragment.setArguments(arguments);
                     getFragmentManager().beginTransaction()
@@ -89,4 +92,17 @@ public class WishPlaceListFragment extends Fragment {
         });
       return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        WishPlaceDao wishPlaceDao = new WishPlaceDao(getContext());
+        wishPlaceDao.open();
+        placesList = (ArrayList<WishPlace>) wishPlaceDao.getAllFavyPlaces();
+        wishPlaceDao.close();
+        adapter.getPlacesList().clear();
+        adapter.getPlacesList().addAll(placesList);
+        adapter.notifyDataSetChanged();
+    }
+
 }

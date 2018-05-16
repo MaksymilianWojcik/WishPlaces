@@ -1,6 +1,7 @@
 package com.example.mwojcik.wishplaces.Utils;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import com.example.mwojcik.wishplaces.R;
 import com.example.mwojcik.wishplaces.dto.WishPlace;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class WishPlaceListAdapter extends ArrayAdapter<WishPlace> {
     private ArrayList<WishPlace> placesList;
@@ -61,5 +63,23 @@ public class WishPlaceListAdapter extends ArrayAdapter<WishPlace> {
         return view;
     }
 
+    @Override
+    public int getCount() {
+        return placesList.size();
+    }
 
+    @Nullable
+    @Override
+    public WishPlace getItem(int position) {
+        return placesList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    public List<WishPlace> getPlacesList(){
+        return this.placesList;
+    }
 }
