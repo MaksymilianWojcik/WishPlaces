@@ -34,3 +34,7 @@ Dodatkowe klasy:
 Adaptery:
 1. ViewPagerAdapter - adapter do określania zakładek na głównym widoku (zakładki Bottom Navigation bara)
 2. WishPlaceListAdapter - adapter do określania widoku i zachowania listy z lokalizacjami.
+
+
+WAŻNE!
+Przed uruchomieniem aplikacji proszę w Google Developer API Console na swoje konto zezwolić używanie googlowskich API: Google Maps for Android SDK oraz Google Places. Następnie należy wygenerować klucz (w zakładce dane logowania) dla biblioteki map oraz następnie ten klucz skopiować i wpisać w pliku AndroidManifest.xml.
