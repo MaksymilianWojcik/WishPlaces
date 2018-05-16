@@ -5,7 +5,7 @@ Aplikacja służy do zapisywania miejsc, które użytkownik chciałby zobaczyć.
 podglądu już dodanych.
 
 Aplikacja składa się z 4 Activity, 3 fragmentów, 4 klas (dto i dao) oraz z 2 Adapterów.
-Używane dodatkowe API: Google Maps, Google Places, Material Design, ButterKnife.
+Używane dodatkowe API: Google Maps, Google Places, Material Design, ButterKnife oraz EventBus (wykorzystany w jednym miejscu jako przykład działania ułatiwającego przekazywanie danych, komunikację między zasobami aplikacji)
 Dane zapisywane są w bazie danych telefonu (SQLiteDatabase).
 Aplikacja wygląda inaczej na telefonie i inaczej na tablecie.
 
