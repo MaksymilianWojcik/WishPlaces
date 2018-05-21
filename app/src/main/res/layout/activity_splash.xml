@@ -4,17 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.SplashActivity">
+    tools:context=".Activity.SplashActivity"
+    android:background="@color/toolbarBackgroundColor">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center|bottom"
+        android:text="WishPlaces"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textSize="45dp"/>
+
+    <TextView
+        android:id="@+id/titleTextTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:text="Where you want to be."
+        android:textStyle="bold"
+        android:textSize="25dp"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/splash_activity_background"
+        android:src="@drawable/app_icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:scaleType="fitXY"/>
+        android:scaleType="center"/>
 
     <TextView
         android:layout_width="0dp"
@@ -24,9 +50,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:gravity="center|bottom"
-        android:text="Wish Places"
+        android:text="By Magda 2018"
         android:textStyle="bold"
         android:layout_marginBottom="15dp"
-        android:textSize="40dp"/>
+        android:textSize="20dp"/>
 
 </android.support.constraint.ConstraintLayout>

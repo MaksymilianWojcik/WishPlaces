@@ -59,7 +59,6 @@ public class WishPlaceListAdapter extends ArrayAdapter<WishPlace> {
         viewHolder.txtName.setText(favyPlace.getName());
         viewHolder.txtSummary.setText(favyPlace.getSummary());
 
-        //zwracamy gotowy widok na ekran
         return view;
     }
 

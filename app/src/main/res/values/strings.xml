@@ -3,9 +3,34 @@
     <string name="title_home">Places</string>
     <string name="title_dashboard">Map</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_wishplace_list">WishPlaces</string>
-    <string name="title_wishplace_detail">WishPlace Detail</string>
+    <string name="title_wishplace_list">WishPlace</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- global -->
+    <string name="place_latitude">Latitude:</string>
+    <string name="place_longitude">Longitude:</string>
+
+    <!-- MainActivity, WishPlaceListFragment-->
+    <string name="place_delete_dialog_title">Delete place</string>
+    <string name="place_delete_dialog_info">Do you want to delete this place?</string>
+
+    <!-- Wish Place Details -->
+    <string name="title_wishplace_detail">WishPlace Detail</string>
+    <string name="place_detail_lat">LAT: </string>
+    <string name="place_detail_lon">LON: </string>
+
+    <!-- Splash Activity -->
+    <string name="internet_alert_dialog_title">Warning!</string>
+    <string name="internet_alert_dialog_info">This app uses Google Maps, so it might require internet connection to load data.</string>
+
+    <!-- New Wish Place Activity-->
+    <string name="title_new_wishplace">New WishPlace</string>
+    <string name="info_new_wishplace">Add new wish place</string>
+    <string name="place_location_details">Location details</string>
+    <string name="place_summary_hint">Place summary</string>
+    <string name="place_name_hint">Place name</string>
+    <string name="place_description_hint">Description</string>
+    <string name="place_find_button">FIND LOCATION</string>
+    <string name="place_save_button">SAVE</string>
+
+
 </resources>

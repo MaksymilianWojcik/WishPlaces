@@ -38,7 +38,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp">
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,7 +50,7 @@
                     android:id="@+id/wishplace_detail_lat_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LAT: "
+                    android:text="@string/place_detail_lat"
                     android:textStyle="bold"
                     android:textSize="14dp"
                     android:layout_weight="1"/>
@@ -57,7 +58,7 @@
                     android:id="@+id/wishplace_detail_lon_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LON: "
+                    android:text="@string/place_detail_lon"
                     android:textStyle="bold"
                     android:textSize="14dp"
                     android:layout_weight="1"/>
@@ -78,37 +79,22 @@
                 android:text="Skrocony opis miejsca"
                 android:textSize="20dp"
                 android:layout_marginTop="5dp"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
             <TextView
                 android:id="@+id/wishplace_detail_description_tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp"
                 android:text="Dluzszy opis miejsca. Dluzszy opis miejsca. Dluzszy opis miejsca. Dluzszy opis miejsca. Dluzszy opis miejsca. Dluzszy opis miejsca."
                 android:textSize="20dp"
-                android:layout_marginTop="12dp"
-                android:scrollbars="vertical"/>
+                android:layout_marginTop="12dp"/>
+            </ScrollView>
 
         </LinearLayout>
 
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
-
-
-
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:fitsSystemWindows="true"-->
-    <!--tools:context=".Fragments.WishPlaceDetailActivity"-->
-    <!--tools:ignore="MergeRootFrame">-->
-
-    <!--<android.support.v4.widget.NestedScrollView-->
-        <!--android:id="@+id/wishplace_detail_container"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
-
-<!--</android.support.design.widget.CoordinatorLayout>-->

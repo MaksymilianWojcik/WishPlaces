@@ -15,41 +15,34 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-/**
- * A fragment representing a single WishPlace detail screen.
- * This fragment is either contained in a {@link WishPlaceListFragment}
- * in two-pane mode (on tablets) or a {@link WishPlaceDetailActivity}
- * on handsets.
- */
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
 public class WishPlaceDetailFragment extends Fragment implements OnMapReadyCallback {
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
+
     public static final String ARG_ITEM_ID = "item_id";
 
     private SupportMapFragment mapFragment;
-    private TextView latTV;
-    private TextView lonTV;
-    private TextView nameTV;
-    private TextView summaryTV;
-    private TextView descriptionTV;
     private WishPlace wishPlace;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public WishPlaceDetailFragment() {
-    }
+    @BindView(R.id.wishplace_detail_fragment_lat) TextView latTV;
+    @BindView(R.id.wishplace_detail_fragment_lon) TextView lonTV;
+    @BindView(R.id.wishplace_detail_fragment_name) TextView nameTV;
+    @BindView(R.id.wishplace_detail_fragment_summary) TextView summaryTV;
+    @BindView(R.id.wishplace_detail_fragment_description) TextView descriptionTV;
+
+
+    public WishPlaceDetailFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             int wishplace_id = getArguments().getInt(ARG_ITEM_ID);
             WishPlaceDao dao = new WishPlaceDao(getContext());
@@ -64,20 +57,17 @@ public class WishPlaceDetailFragment extends Fragment implements OnMapReadyCallb
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.wishplace_detail, container, false);
 
-        latTV = (TextView) rootView.findViewById(R.id.wishplace_detail_fragment_lat);
-        lonTV = (TextView) rootView.findViewById(R.id.wishplace_detail_fragment_lon);
-        nameTV = (TextView) rootView.findViewById(R.id.wishplace_detail_fragment_name);
-        summaryTV = (TextView) rootView.findViewById(R.id.wishplace_detail_fragment_summary);
-        descriptionTV = (TextView) rootView.findViewById(R.id.wishplace_detail_fragment_description);
+        ButterKnife.bind(this, rootView);
 
-        mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.place_detail_map_fr);
-        mapFragment.getMapAsync(this);
-
-        latTV.setText("LAT: " + wishPlace.getLatitude());
-        lonTV.setText("LON: " + wishPlace.getLongitude());
-        nameTV.setText(wishPlace.getName());
-        summaryTV.setText(wishPlace.getSummary());
-        descriptionTV.setText(wishPlace.getDescription());
+        if (wishPlace != null) {
+            mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.place_detail_map_fr);
+            mapFragment.getMapAsync(this);
+            latTV.setText("LAT: " + wishPlace.getLatitude());
+            lonTV.setText("LON: " + wishPlace.getLongitude());
+            nameTV.setText(wishPlace.getName());
+            summaryTV.setText(wishPlace.getSummary());
+            descriptionTV.setText(wishPlace.getDescription());
+        }
 
         return rootView;
     }
@@ -89,6 +79,7 @@ public class WishPlaceDetailFragment extends Fragment implements OnMapReadyCallb
         googleMap.getUiSettings().setRotateGesturesEnabled(false);
         googleMap.getUiSettings().setAllGesturesEnabled(false);
         googleMap.getUiSettings().setMapToolbarEnabled(false);
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(wishPlace.getLatitude()), Double.parseDouble(wishPlace.getLongitude()))).title(wishPlace.getName()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(wishPlace.getLatitude()), Double.parseDouble(wishPlace.getLongitude())),16));
         googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override

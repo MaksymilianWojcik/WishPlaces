@@ -16,16 +16,6 @@ public class WishPlaceDao {
     private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
 
-    //zeby nie przelaczac sie miedzy ekrranami i przypominac sobie co tam byly za pola
-    private String[] allColumns = {
-            DatabaseHelper.COLUMN_PLACE_ID,
-            DatabaseHelper.COLUMN_PLACE_NAME,
-            DatabaseHelper.COLUMN_PLACE_SUMMARY,
-            DatabaseHelper.COLUMN_PLACE_DESCRIPTION,
-            DatabaseHelper.COLUMN_PLACE_LATITUDE,
-            DatabaseHelper.COLUMN_PLACE_LONGITUDE
-    };
-
     public WishPlaceDao(Context context){
         dbHelper = new DatabaseHelper(context);
     }
@@ -38,6 +28,9 @@ public class WishPlaceDao {
         dbHelper.close();
     }
 
+    /**
+     * Tworzymy nowy obiekt WishPlace w bazie danych
+    */
     public void createWishPlace(String name, String summary, String description, String latitude, String longitude){
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.COLUMN_PLACE_NAME, name);
@@ -48,7 +41,14 @@ public class WishPlaceDao {
 
         database.insert(DatabaseHelper.TABLE_PLACES, null, contentValues);
     }
+    /**
+     * Usuwamy dany obiekt WishPlace z bazy
+     */
+    public void removeWishPlace(WishPlace place){
+        database.delete(DatabaseHelper.TABLE_PLACES, "_id=?", new String[]{String.valueOf(place.getId())});
+    }
 
+    //kursor 'skaczacy' po kolumnach
     private WishPlace cursorToLocation(Cursor cursor){
         WishPlace place = new WishPlace();
         place.setId(cursor.getInt(0));
@@ -57,10 +57,13 @@ public class WishPlaceDao {
         place.setDescription(cursor.getString(3));
         place.setLatitude(cursor.getString(4));
         place.setLongitude(cursor.getString(5));
-//        cursor.close();
+
         return place;
     }
 
+    /**
+     * Pobieramy obiekt WishPlace z bazy na podstawie jego id
+     */
     public WishPlace getFavyPlaceById(int id){
         Cursor cursor = database.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_PLACES + " WHERE "
                 + DatabaseHelper.COLUMN_PLACE_ID + "=?", new String[]{String.valueOf(id)});
@@ -68,6 +71,9 @@ public class WishPlaceDao {
         return cursorToLocation(cursor);
     }
 
+    /**
+     * Pobieramy wszystkie obikety WishPLace i zwracamy liste tych obiektow
+     */
     public List<WishPlace> getAllFavyPlaces(){
         List<WishPlace> resultList = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_PLACES, new String[]{});

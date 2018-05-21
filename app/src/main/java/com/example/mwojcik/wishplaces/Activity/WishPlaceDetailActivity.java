@@ -1,6 +1,7 @@
 package com.example.mwojcik.wishplaces.Activity;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import com.example.mwojcik.wishplaces.Fragments.WishPlaceDetailFragment;
 import com.example.mwojcik.wishplaces.Fragments.WishPlaceListFragment;
 import com.example.mwojcik.wishplaces.R;
+import com.example.mwojcik.wishplaces.Utils.AppValues;
 import com.example.mwojcik.wishplaces.dao.WishPlaceDao;
 import com.example.mwojcik.wishplaces.dto.WishPlace;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,6 +21,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * An activity representing a single WishPlace detail screen. This
@@ -31,52 +36,38 @@ public class WishPlaceDetailActivity extends AppCompatActivity implements OnMapR
     private SupportMapFragment mapFragment;
     private WishPlace wishPlace;
 
-    private Toolbar toolbar;
-    private TextView latTV;
-    private TextView lonTV;
-    private TextView nameTV;
-    private TextView summaryTV;
-    private TextView descriptionTV;
+    @BindView(R.id.wishplace_detail_mainToolbarActivity) Toolbar toolbar;
+    @BindView(R.id.wishplace_detail_lat_tv) TextView latTV;
+    @BindView(R.id.wishplace_detail_lon_tv) TextView lonTV;
+    @BindView(R.id.wishplace_detail_name_tv) TextView nameTV;
+    @BindView(R.id.wishplace_detail_summary_tv) TextView summaryTV;
+    @BindView(R.id.wishplace_detail_description_tv) TextView descriptionTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wishplace_detail);
+        ButterKnife.bind(this);
 
-        toolbar = (Toolbar) findViewById(R.id.wishplace_detail_mainToolbarActivity);
+        //Jezeli chcemy pozowlic na obracanie ekranu, to zakomentować linijki 51-56
+        SharedPreferences preferences = getSharedPreferences(AppValues.PREFERENCES_NAME, MODE_PRIVATE);
+        if(preferences.getInt(AppValues.PREFERENCES_DEVICE_TYPE, 0) == 0){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+
+        //Odwolujemy sie do naszego toolbara i udostpeniamy przycisk back (strzalka w lewo) oraz
+        //ustawiamy tytul
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        ((TextView) toolbar.getChildAt(0)).setText(R.string.title_wishplace_detail);
 
-        latTV = (TextView) findViewById(R.id.wishplace_detail_lat_tv);
-        lonTV = (TextView) findViewById(R.id.wishplace_detail_lon_tv);
-        nameTV = (TextView) findViewById(R.id.wishplace_detail_name_tv);
-        summaryTV = (TextView) findViewById(R.id.wishplace_detail_summary_tv);
-        descriptionTV = (TextView) findViewById(R.id.wishplace_detail_description_tv);
-
-
-        // savedInstanceState is non-null when there is fragment state
-        // saved from previous configurations of this activity
-        // (e.g. when rotating the screen from portrait to landscape).
-        // In this case, the fragment will automatically be re-added
-        // to its container so we don't need to manually add it.
-        // For more information, see the Fragments API guide at:
-        //
-        // http://developer.android.com/guide/components/fragments.html
-        //
         if (savedInstanceState == null) {
-            // Create the detail fragment and add it to the activity
-//            // using a fragment transaction.
-//            Bundle arguments = new Bundle();
-//            arguments.putString(WishPlaceDetailFragment.ARG_ITEM_ID,
-//                    getIntent().getStringExtra(WishPlaceDetailFragment.ARG_ITEM_ID));
-//            WishPlaceDetailFragment fragment = new WishPlaceDetailFragment();
-//            fragment.setArguments(arguments);
-//            getSupportFragmentManager().beginTransaction()
-//                    .add(R.id.wishplace_detail_container, fragment)
-//                    .commit();
-
+            //Pobieramy przekazany ID lokalizacji wybranej z listy
+            //Pobieramy dane z lokalizacji i ustawiamy wartosci w polach
             if (getIntent().hasExtra(WishPlaceDetailFragment.ARG_ITEM_ID)){
                 int wishplace_id = getIntent().getIntExtra(WishPlaceDetailFragment.ARG_ITEM_ID, 0);
                 WishPlaceDao dao = new WishPlaceDao(this);
@@ -91,6 +82,7 @@ public class WishPlaceDetailActivity extends AppCompatActivity implements OnMapR
                 descriptionTV.setText(wishPlace.getDescription());
             }
 
+            //Tworzymy odwolanie do mapy i przypisujemy callback w tej klasie (onMapReady)
             mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.place_detail_map_ac);
             mapFragment.getMapAsync(this);
         }
@@ -102,6 +94,7 @@ public class WishPlaceDetailActivity extends AppCompatActivity implements OnMapR
         return true;
     }
 
+    //Callback wywolujacy sie (po mapFragment.getMapAsync) kiedy mapa jest gotowa
     @Override
     public void onMapReady(GoogleMap googleMap) {
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -120,6 +113,3 @@ public class WishPlaceDetailActivity extends AppCompatActivity implements OnMapR
         });
     }
 }
-
-//api mwojcik
-//AIzaSyC9BsHHM04uRZwW77hkXMvNcT8ZjMXCWTk

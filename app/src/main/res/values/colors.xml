@@ -15,4 +15,6 @@
     <color name="placeItemSummary">#e6afc5</color>
     <color name="newPlaceBackgroundColor">#e0f1e9</color>
     <color name="placeDetailsBackgroundColor">#e0f1e9</color>
+    <color name="saveNewPlaceButton">#e6afc5</color>
+    <color name="findLocationButton">#e6afc5</color>
 </resources>

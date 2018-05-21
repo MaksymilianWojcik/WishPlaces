@@ -9,6 +9,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "favyplaces.db";
     public static final int DATABASE_VERSION = 1;
 
+    //Definiujemy nazwy tabeli oraz nazwy kolumn
     public static final String TABLE_PLACES = "places";
     public static final String COLUMN_PLACE_ID = "_id";
     public static final String COLUMN_PLACE_NAME = "place_name";
@@ -17,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PLACE_LATITUDE = "place_latitude";
     public static final String COLUMN_PLACE_LONGITUDE = "place_longitude";
 
+    //Tworzenie tabeli w bazie
     private static final String TABLE_PLACES_CREATE = "create table "
             + TABLE_PLACES + "("
             + COLUMN_PLACE_ID + " integer primary key autoincrement,"

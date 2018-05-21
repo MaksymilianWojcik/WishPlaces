@@ -8,7 +8,7 @@
     tools:context=".Activity.NewWishPlaceActivity">
 
     <include layout="@layout/activity_toolbar"
-        android:id="@+id/mainToolbarActivity"
+        android:id="@+id/new_wish_place_toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:transitionName="toolbar"
@@ -25,9 +25,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/back_button_icon"
-        app:layout_constraintBottom_toBottomOf="@id/mainToolbarActivity"
-        app:layout_constraintTop_toTopOf="@id/mainToolbarActivity"
-        app:layout_constraintStart_toStartOf="@id/mainToolbarActivity"/>
+        app:layout_constraintBottom_toBottomOf="@id/new_wish_place_toolbar"
+        app:layout_constraintTop_toTopOf="@id/new_wish_place_toolbar"
+        app:layout_constraintStart_toStartOf="@id/new_wish_place_toolbar"/>
 
     <LinearLayout
         android:id="@+id/linearlayout"
@@ -37,11 +37,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainToolbarActivity">
+        app:layout_constraintTop_toBottomOf="@id/new_wish_place_toolbar">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add new favy place"
+            android:text="@string/info_new_wishplace"
             android:layout_gravity="center"
             android:gravity="center"
             android:padding="10dp"
@@ -51,7 +51,7 @@
             android:id="@+id/placeNameET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Place name"
+            android:hint="@string/place_name_hint"
             android:padding="10dp"
             android:maxLength="25"
             android:maxLines="1"
@@ -62,7 +62,7 @@
             android:id="@+id/placeSummaryET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Place summary"
+            android:hint="@string/place_summary_hint"
             android:padding="10dp"
             android:maxLength="25"
             android:maxLines="1"
@@ -72,7 +72,7 @@
             android:id="@+id/placeDescriptionET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"
+            android:hint="@string/place_description_hint"
             android:padding="10dp"
             android:inputType="textCapSentences|textMultiLine"
             android:maxLength="2000"
@@ -81,7 +81,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Location details"
+            android:text="@string/place_location_details"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginTop="10dp"
@@ -95,7 +95,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Latitude: "
+                android:text="@string/place_latitude"
                 android:layout_weight="1"
                 android:gravity="center"/>
             <TextView
@@ -113,7 +113,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Longitude: "
+                android:text="@string/place_longitude"
                 android:gravity="center"
                 android:layout_weight="1"/>
             <TextView
@@ -129,18 +129,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Press to find location"/>
+            android:background="@color/findLocationButton"
+            android:text="@string/place_find_button"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/savePlaceBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SAVE MY FAVY PLACE"
+        android:text="@string/place_save_button"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/saveNewPlaceButton"
         android:enabled="false"/>
 
 </android.support.constraint.ConstraintLayout>
