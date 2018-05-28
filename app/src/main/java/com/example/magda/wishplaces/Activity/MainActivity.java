@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.Activity;
+package com.example.magda.wishplaces.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,11 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.mwojcik.wishplaces.Fragments.MapFragment;
-import com.example.mwojcik.wishplaces.Fragments.WishPlaceListFragment;
-import com.example.mwojcik.wishplaces.R;
-import com.example.mwojcik.wishplaces.Utils.AppValues;
-import com.example.mwojcik.wishplaces.Utils.ViewPagerAdapter;
+import com.example.magda.wishplaces.Fragments.MapFragment;
+import com.example.magda.wishplaces.Fragments.WishPlaceListFragment;
+import com.example.magda.wishplaces.R;
+import com.example.magda.wishplaces.Utils.AppValues;
+import com.example.magda.wishplaces.Utils.ViewPagerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

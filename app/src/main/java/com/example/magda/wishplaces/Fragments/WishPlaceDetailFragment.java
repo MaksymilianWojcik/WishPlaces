@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.Fragments;
+package com.example.magda.wishplaces.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.mwojcik.wishplaces.Activity.WishPlaceDetailActivity;
-import com.example.mwojcik.wishplaces.R;
-import com.example.mwojcik.wishplaces.dao.WishPlaceDao;
-import com.example.mwojcik.wishplaces.dto.WishPlace;
+import com.example.magda.wishplaces.Activity.WishPlaceDetailActivity;
+import com.example.magda.wishplaces.R;
+import com.example.magda.wishplaces.dao.WishPlaceDao;
+import com.example.magda.wishplaces.dto.WishPlace;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.Activity;
+package com.example.magda.wishplaces.Activity;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -12,9 +12,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.example.mwojcik.wishplaces.R;
-import com.example.mwojcik.wishplaces.Utils.AppValues;
-import com.example.mwojcik.wishplaces.dao.WishPlaceDao;
+import com.example.magda.wishplaces.R;
+import com.example.magda.wishplaces.Utils.AppValues;
+import com.example.magda.wishplaces.dao.WishPlaceDao;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -98,6 +98,7 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... arg0) {
             try {
+                //jezeli pierwszy raz uruchamiamy aplikacje na telefonie, wygenerujmy sobie jakies przykladowe dane
                 if(preferences.getBoolean(AppValues.PREFERENCES_FIRST_LOGIN, true)){
                     generateMockWishPlaces();
                     preferences.edit().putBoolean(AppValues.PREFERENCES_FIRST_LOGIN, false).commit();

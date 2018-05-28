@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.Utils;
+package com.example.magda.wishplaces.Utils;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.mwojcik.wishplaces.R;
-import com.example.mwojcik.wishplaces.dto.WishPlace;
+import com.example.magda.wishplaces.R;
+import com.example.magda.wishplaces.dto.WishPlace;
 
 import java.util.ArrayList;
 import java.util.List;

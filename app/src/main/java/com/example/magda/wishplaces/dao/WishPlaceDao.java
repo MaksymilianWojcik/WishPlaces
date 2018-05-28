@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.dao;
+package com.example.magda.wishplaces.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.mwojcik.wishplaces.dto.WishPlace;
+import com.example.magda.wishplaces.dto.WishPlace;
 
 import java.util.ArrayList;
 import java.util.List;

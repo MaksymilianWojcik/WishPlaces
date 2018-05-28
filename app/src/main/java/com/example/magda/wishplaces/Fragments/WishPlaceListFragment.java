@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.Fragments;
+package com.example.magda.wishplaces.Fragments;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -16,11 +16,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.mwojcik.wishplaces.Activity.WishPlaceDetailActivity;
-import com.example.mwojcik.wishplaces.R;
-import com.example.mwojcik.wishplaces.Utils.WishPlaceListAdapter;
-import com.example.mwojcik.wishplaces.dao.WishPlaceDao;
-import com.example.mwojcik.wishplaces.dto.WishPlace;
+import com.example.magda.wishplaces.Activity.WishPlaceDetailActivity;
+import com.example.magda.wishplaces.R;
+import com.example.magda.wishplaces.Utils.WishPlaceListAdapter;
+import com.example.magda.wishplaces.dao.WishPlaceDao;
+import com.example.magda.wishplaces.dto.WishPlace;
 
 import java.util.ArrayList;
 

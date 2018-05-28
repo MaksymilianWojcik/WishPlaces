@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.dao;
+package com.example.magda.wishplaces.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

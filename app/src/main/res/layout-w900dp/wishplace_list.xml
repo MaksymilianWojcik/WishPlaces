@@ -24,7 +24,7 @@
         android:name="com.example.mwojcik.wishplaces.Fragments.WishPlaceListFragment"
         android:layout_width="300dp"
         android:layout_height="match_parent"
-        tools:context="com.example.mwojcik.wishplaces.Fragments.WishPlaceListFragment"/>
+        tools:context="com.example.magda.wishplaces.Fragments.WishPlaceListFragment"/>
 
 
     <FrameLayout

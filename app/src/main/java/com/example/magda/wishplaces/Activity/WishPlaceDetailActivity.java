@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.Activity;
+package com.example.magda.wishplaces.Activity;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.example.mwojcik.wishplaces.Fragments.WishPlaceDetailFragment;
-import com.example.mwojcik.wishplaces.Fragments.WishPlaceListFragment;
-import com.example.mwojcik.wishplaces.R;
-import com.example.mwojcik.wishplaces.Utils.AppValues;
-import com.example.mwojcik.wishplaces.dao.WishPlaceDao;
-import com.example.mwojcik.wishplaces.dto.WishPlace;
+import com.example.magda.wishplaces.Fragments.WishPlaceDetailFragment;
+import com.example.magda.wishplaces.Fragments.WishPlaceListFragment;
+import com.example.magda.wishplaces.R;
+import com.example.magda.wishplaces.Utils.AppValues;
+import com.example.magda.wishplaces.dao.WishPlaceDao;
+import com.example.magda.wishplaces.dto.WishPlace;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

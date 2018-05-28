@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.Activity;
+package com.example.magda.wishplaces.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mwojcik.wishplaces.R;
-import com.example.mwojcik.wishplaces.Utils.AppValues;
-import com.example.mwojcik.wishplaces.dao.WishPlaceDao;
+import com.example.magda.wishplaces.R;
+import com.example.magda.wishplaces.Utils.AppValues;
+import com.example.magda.wishplaces.dao.WishPlaceDao;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;

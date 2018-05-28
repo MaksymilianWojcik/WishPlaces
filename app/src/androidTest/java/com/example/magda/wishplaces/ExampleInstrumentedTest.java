@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces;
+package com.example.magda.wishplaces;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

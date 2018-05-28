@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces;
+package com.example.magda.wishplaces;
 
 import org.junit.Test;
 

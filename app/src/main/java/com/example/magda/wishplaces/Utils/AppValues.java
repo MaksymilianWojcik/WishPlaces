@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.Utils;
+package com.example.magda.wishplaces.Utils;
 
 public class AppValues {
 

@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.dto;
+package com.example.magda.wishplaces.dto;
 
 public class WishPlace {
 

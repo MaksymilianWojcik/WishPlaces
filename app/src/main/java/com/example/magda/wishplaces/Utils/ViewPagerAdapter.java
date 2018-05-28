@@ -1,4 +1,4 @@
-package com.example.mwojcik.wishplaces.Utils;
+package com.example.magda.wishplaces.Utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
