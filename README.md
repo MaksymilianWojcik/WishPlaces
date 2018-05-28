@@ -40,11 +40,3 @@ WAŻNE!
 Przed uruchomieniem aplikacji proszę w Google Developer API Console na swoje konto googlowskie (na które jesteśmy na danym telefonie zalogowani) zezwolić używanie googlowskich API: Google Maps for Android SDK oraz Google Places. Następnie należy wygenerować klucz (w zakładce dane logowania) dla biblioteki map oraz następnie ten klucz skopiować i wpisać w pliku AndroidManifest.xml.
 
 
-TODO:
-1. dodać EventBusa
-2. dodać usuwanie / edycja elementów
-3. refaktoring kodu
-4. ustawienie wszystkich tekstów w values/string
-5. ustawienie rozmiarów czcionek w values/dim dla różnych urządzeń
-6. ustawienie wszystkich kolorów w values/colors
-7. dodać internet access permission
